@@ -1,7 +1,7 @@
-var currentDay = dayjs().format('dddd, MMMM D');
-$('header').append(currentDay);
+$(document).ready(function() {
+  var currentDay = dayjs().format('dddd, MMMM D');
+  $('header').append(currentDay);
 
-$(function () {
   $(".saveBtn").click(function() {
     console.log("A button clicked!");
     var valueToSave = $(this).siblings("textarea").val();
@@ -26,10 +26,11 @@ $(function () {
     var timeBlockHour = parseInt(timeBlockId.split("-")[1]);
     if (timeBlockHour < currentHour) {
       $(this).addClass("past");
-    } else if (timeBlockHour == currentHour) {
+    } else if (timeBlockHour === currentHour) {
       $(this).addClass("present");
     } else {
       $(this).addClass("future");
     }
   });
 });
+
